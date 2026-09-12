@@ -7,22 +7,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Quản lý Màn hình chào mừng (Splash Screen Bác Hồ & Hoa Sen)
   initSplashScreen();
 
-  // 2. Hiệu ứng cánh sen bay nhẹ nhàng
+  // 2. Nhạc nền tưởng niệm
+  initBackgroundMusic();
+
+  // 3. Hiệu ứng cánh sen bay nhẹ nhàng
   createLotusPetals();
 
-  // 3. Đồng hồ thời gian thực
+  // 4. Đồng hồ thời gian thực
   initLiveClock();
 
-  // 4. Tìm kiếm & Lọc 2 địa danh di tích 3D
+  // 5. Tìm kiếm & Lọc 2 địa danh di tích 3D
   initSearchAndFilter();
 
-  // 5. Cửa sổ xem trước 3D trực tiếp (Modal 3D Preview)
+  // 6. Cửa sổ xem trước 3D trực tiếp (Modal 3D Preview)
   initModal3DPreview();
 
-  // 6. Sao chép liên kết & Toast
+  // 7. Sao chép liên kết & Toast
   initCopyButtons();
 
-  // 7. Nút cuộn lên đầu trang
+  // 8. Nút cuộn lên đầu trang
   initBackToTop();
 });
 
@@ -78,7 +81,103 @@ function initSplashScreen() {
 }
 
 /* ==========================================================================
-   2. HIỆU ỨNG CÁNH SEN RƠI LƠ LỬNG
+   2. NHẠC NỀN TƯỞNG NIỆM
+   ========================================================================== */
+function initBackgroundMusic() {
+  const music = document.getElementById('backgroundMusic');
+  const toggleButtons = [...document.querySelectorAll('[data-music-toggle]')];
+
+  if (!music) return;
+
+  let interactionListenersActive = true;
+  let musicUnavailable = false;
+
+  const updateControls = (isPlaying) => {
+    toggleButtons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(isPlaying));
+      button.setAttribute('aria-label', musicUnavailable ? 'Nhạc nền không khả dụng' : `${isPlaying ? 'Tắt' : 'Bật'} nhạc nền`);
+      button.title = musicUnavailable ? 'Nhạc nền không khả dụng' : `${isPlaying ? 'Tắt' : 'Bật'} nhạc nền`;
+      button.classList.toggle('is-playing', isPlaying);
+      button.disabled = musicUnavailable;
+
+      const label = button.querySelector('.music-toggle-label');
+      if (label) {
+        label.textContent = musicUnavailable ? 'Nhạc lỗi' : (isPlaying ? 'Tắt nhạc' : 'Bật nhạc');
+      }
+    });
+  };
+
+  const removeInteractionListeners = () => {
+    if (!interactionListenersActive) return;
+    window.removeEventListener('pointerdown', handleFirstInteraction);
+    window.removeEventListener('keydown', handleFirstInteraction);
+    interactionListenersActive = false;
+  };
+
+  const playMusic = () => {
+    if (musicUnavailable || !music.paused) {
+      updateControls(!music.paused);
+      return Promise.resolve(!music.paused);
+    }
+
+    const playPromise = music.play();
+    if (!playPromise || typeof playPromise.then !== 'function') {
+      updateControls(true);
+      removeInteractionListeners();
+      return Promise.resolve(true);
+    }
+
+    return playPromise
+      .then(() => {
+        updateControls(true);
+        removeInteractionListeners();
+        return true;
+      })
+      .catch(() => {
+        updateControls(false);
+        return false;
+      });
+  };
+
+  function handleFirstInteraction(event) {
+    if (event.target?.closest?.('[data-music-toggle]')) return;
+    playMusic();
+  }
+
+  const toggleMusic = (event) => {
+    event.preventDefault();
+    if (musicUnavailable) return;
+
+    if (music.paused) {
+      playMusic();
+    } else {
+      music.pause();
+      updateControls(false);
+      removeInteractionListeners();
+    }
+  };
+
+  toggleButtons.forEach((button) => {
+    button.addEventListener('click', toggleMusic);
+  });
+
+  music.addEventListener('play', () => updateControls(true));
+  music.addEventListener('pause', () => updateControls(false));
+  music.addEventListener('error', () => {
+    musicUnavailable = true;
+    removeInteractionListeners();
+    updateControls(false);
+  });
+
+  window.addEventListener('pointerdown', handleFirstInteraction, { passive: true });
+  window.addEventListener('keydown', handleFirstInteraction, { passive: true });
+
+  updateControls(false);
+  playMusic();
+}
+
+/* ==========================================================================
+   3. HIỆU ỨNG CÁNH SEN RƠI LƠ LỬNG
    ========================================================================== */
 function createLotusPetals() {
   const container = document.getElementById('petalsContainer');
