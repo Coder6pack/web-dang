@@ -105,6 +105,7 @@ body::before {
   align-items: flex-start;
   justify-content: center;
   padding: 1rem 1rem 1.25rem;
+  overflow-x: hidden;
   overflow-y: auto;
   transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
 }
@@ -148,12 +149,46 @@ body::before {
   animation: slowSpin 90s linear infinite;
 }
 
+.splash-corner-brand {
+  position: fixed;
+  top: 1rem;
+  left: 1.25rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: calc(100vw - 2rem);
+}
+
+.splash-corner-brand-logo {
+  width: 44px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.splash-corner-brand span {
+  max-width: calc(100vw - 5.5rem);
+  color: var(--gold-light);
+  font-family: var(--font-serif);
+  font-size: clamp(0.72rem, 1.4vw, 1.05rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: clamp(0.8px, 0.16vw, 1.5px);
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
 .splash-content {
   position: relative;
   z-index: 2;
   max-width: 800px;
   width: 100%;
   margin: auto 0;
+  padding: 2.5rem 1rem 0;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -166,22 +201,6 @@ body::before {
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.splash-emblem-wrap {
-  margin-bottom: 0.35rem;
-  position: relative;
-  z-index: 5;
-}
-
-.splash-emblem-img {
-  width: 46px;
-  height: 31px;
-  border-radius: 4px;
-  object-fit: cover;
-  border: 1px solid rgba(255, 215, 0, 0.6);
-  filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.65));
-  box-shadow: 0 0 16px rgba(185, 14, 22, 0.6);
-}
-
 .splash-title-wrap {
   margin-bottom: 0.5rem;
   display: flex;
@@ -189,28 +208,6 @@ body::before {
   align-items: center;
   position: relative;
   z-index: 5;
-}
-
-.splash-org-title {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 0.25rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-.splash-org-title::before,
-.splash-org-title::after {
-  content: '★';
-  color: var(--gold);
-  font-size: 0.8rem;
-  opacity: 0.85;
 }
 
 .splash-grand-hero-title {
@@ -260,6 +257,8 @@ body::before {
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: max(360px, min(540px, 84vw));
+  padding-top: clamp(2rem, 5vw, 4rem);
 }
 
 /* Ảnh Bác Hồ NẰM ĐÈ LÊN TRÊN hoa sen (z-index: 10) */
@@ -307,9 +306,9 @@ body::before {
 /* ĐÀI HOA SEN 3D BỰ GẤP ĐÔI NẰM PHÍA SAU NÂNG ĐỠ BÁC */
 .sacred-lotus-altar {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   z-index: 2;
   display: flex;
   align-items: center;
@@ -338,8 +337,8 @@ body::before {
 }
 
 .sacred-lotus-img {
-  width: 580px;
-  max-width: 95vw;
+  width: min(720px, 104vw);
+  max-width: none;
   height: auto;
   position: relative;
   z-index: 2;
@@ -544,22 +543,6 @@ body::before {
 
 .nav-brand:hover .nav-brand-logo {
   transform: scale(1.08);
-}
-
-.splash-emblem-wrap {
-  margin-bottom: 0.85rem;
-  display: flex;
-  justify-content: center;
-}
-
-.splash-emblem-img {
-  width: 72px;
-  height: 48px;
-  border-radius: 6px;
-  object-fit: cover;
-  border: 1.5px solid rgba(255, 215, 0, 0.6);
-  filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.65));
-  box-shadow: 0 0 20px rgba(185, 14, 22, 0.6);
 }
 
 .footer-emblem-logo {
@@ -1491,10 +1474,6 @@ body::before {
   .portal-subtitle {
     font-size: 0.95rem;
   }
-  .splash-org-title {
-    font-size: 1.05rem;
-    letter-spacing: 2px;
-  }
   .splash-grand-hero-title {
     font-size: 1.85rem;
     letter-spacing: 2px;
@@ -1508,11 +1487,10 @@ body::before {
     border-radius: 110px 110px 8px 8px;
   }
   .sacred-lotus-altar {
-    transform: translate(-50%, -36%);
+    transform: translateX(-50%);
   }
   .sacred-lotus-img {
-    width: 480px;
-    max-width: 95vw;
+    width: min(620px, 104vw);
   }
   .lotus-ceremonial-banner {
     margin-top: -12px;
@@ -1542,9 +1520,19 @@ body::before {
 }
 
 @media (max-width: 480px) {
-  .splash-org-title {
-    font-size: 0.92rem;
-    letter-spacing: 1.5px;
+  .splash-corner-brand {
+    top: 0.75rem;
+    left: 0.85rem;
+    gap: 0.55rem;
+  }
+  .splash-corner-brand-logo {
+    width: 38px;
+    height: 27px;
+  }
+  .splash-corner-brand span {
+    max-width: calc(100vw - 5rem);
+    font-size: 0.7rem;
+    letter-spacing: 0.8px;
   }
   .splash-grand-hero-title {
     font-size: 1.45rem;
@@ -1559,11 +1547,10 @@ body::before {
     border-radius: 92px 92px 8px 8px;
   }
   .sacred-lotus-altar {
-    transform: translate(-50%, -34%);
+    transform: translateX(-50%);
   }
   .sacred-lotus-img {
-    width: 380px;
-    max-width: 96vw;
+    width: min(460px, 104vw);
   }
   .lotus-ceremonial-banner {
     margin-top: -10px;
