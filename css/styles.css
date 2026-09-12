@@ -434,11 +434,6 @@ body::before {
   stroke-linejoin: round;
 }
 
-.nav-music-toggle {
-  min-height: 34px;
-  padding: 0.35rem 0.75rem;
-}
-
 .splash-entry-note {
   font-size: 0.82rem;
   color: var(--text-muted);
@@ -1516,9 +1511,6 @@ body::before {
   }
   .btn-reopen-splash {
     padding: 0.4rem;
-  }
-  .nav-music-toggle .music-toggle-label {
-    display: none;
   }
   .portal-title {
     font-size: 1.3rem;

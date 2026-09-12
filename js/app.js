@@ -4,11 +4,11 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Quản lý Màn hình chào mừng (Splash Screen Bác Hồ & Hoa Sen)
-  initSplashScreen();
+  // 1. Nhạc nền tưởng niệm & bộ điều khiển cho màn hình chào
+  const musicController = initBackgroundMusic();
 
-  // 2. Nhạc nền tưởng niệm
-  initBackgroundMusic();
+  // 2. Quản lý Màn hình chào mừng (Splash Screen Bác Hồ & Hoa Sen)
+  initSplashScreen(musicController);
 
   // 3. Hiệu ứng cánh sen bay nhẹ nhàng
   createLotusPetals();
@@ -32,14 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ==========================================================================
    1. MÀN HÌNH CHÀO MỪNG (SPLASH SCREEN)
    ========================================================================== */
-function initSplashScreen() {
+function initSplashScreen(musicController = {}) {
   const splashOverlay = document.getElementById('splashOverlay');
   const enterBtn = document.getElementById('btnEnterPortal');
   const reopenBtn = document.getElementById('btnReopenSplash');
+  const playBackgroundMusic = typeof musicController.play === 'function' ? musicController.play : () => Promise.resolve(false);
+  const pauseBackgroundMusic = typeof musicController.pause === 'function' ? musicController.pause : () => {};
 
   if (!splashOverlay) return;
 
   const closeSplash = () => {
+    pauseBackgroundMusic(true);
     splashOverlay.classList.add('hidden');
     document.body.style.overflow = 'auto';
   };
@@ -47,6 +50,7 @@ function initSplashScreen() {
   const openSplash = () => {
     splashOverlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+    playBackgroundMusic();
   };
 
   if (enterBtn) {
@@ -86,8 +90,14 @@ function initSplashScreen() {
 function initBackgroundMusic() {
   const music = document.getElementById('backgroundMusic');
   const toggleButtons = [...document.querySelectorAll('[data-music-toggle]')];
+  const splashOverlay = document.getElementById('splashOverlay');
 
-  if (!music) return;
+  if (!music) {
+    return {
+      play: () => Promise.resolve(false),
+      pause: () => {}
+    };
+  }
 
   let interactionListenersActive = true;
   let musicUnavailable = false;
@@ -139,7 +149,14 @@ function initBackgroundMusic() {
       });
   };
 
+  const pauseMusic = (reset = false) => {
+    music.pause();
+    if (reset) music.currentTime = 0;
+    updateControls(false);
+  };
+
   function handleFirstInteraction(event) {
+    if (splashOverlay && splashOverlay.classList.contains('hidden')) return;
     if (event.target?.closest?.('[data-music-toggle]')) return;
     playMusic();
   }
@@ -151,8 +168,7 @@ function initBackgroundMusic() {
     if (music.paused) {
       playMusic();
     } else {
-      music.pause();
-      updateControls(false);
+      pauseMusic();
       removeInteractionListeners();
     }
   };
@@ -174,6 +190,11 @@ function initBackgroundMusic() {
 
   updateControls(false);
   playMusic();
+
+  return {
+    play: playMusic,
+    pause: pauseMusic
+  };
 }
 
 /* ==========================================================================
