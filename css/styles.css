@@ -554,8 +554,8 @@ body::before {
 
 .nav-brand-text h1 {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   background: var(--gold-gradient);
