@@ -185,7 +185,7 @@ body::before {
 .splash-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 960px;
   width: 100%;
   margin: auto 0;
   padding: 2.5rem 1rem 0;
@@ -235,7 +235,7 @@ body::before {
 }
 
 /* ==========================================================================
-   KHU VỰC TÔN VINH BÁC HỒ VÀ 1 HOA SEN 3D CHÌM
+   KHU VỰC TÔN VINH BÁC HỒ VÀ ĐÀI SEN
    ========================================================================== */
 .splash-grand-composition {
   display: flex;
@@ -248,7 +248,7 @@ body::before {
   width: 100%;
 }
 
-/* Khung Chân Dung Bác Hồ To Lớn, Uy Nghiêm */
+/* Ảnh kết hợp Bác Hồ, khung vàng và đài sen */
 .portrait-grand-monument {
   position: relative;
   z-index: 3;
@@ -257,103 +257,21 @@ body::before {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: max(360px, min(540px, 84vw));
-  padding-top: clamp(2rem, 5vw, 4rem);
 }
 
-/* Ảnh Bác Hồ NẰM ĐÈ LÊN TRÊN hoa sen (z-index: 10) */
-.portrait-gold-arch {
-  width: 235px;
-  height: 315px;
-  border-radius: 118px 118px 14px 14px;
-  padding: 8px;
-  background: linear-gradient(135deg, #fff3b0 0%, #f1b72c 35%, #d4900c 70%, #9e6300 100%);
-  box-shadow: 0 0 50px rgba(255, 215, 0, 0.65), 0 20px 50px rgba(0, 0, 0, 0.9);
-  border: 2.5px solid #ffeaa7;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  position: relative;
-  z-index: 10;
-}
-
-.portrait-gold-arch:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 65px rgba(255, 215, 0, 0.8), 0 25px 60px rgba(0, 0, 0, 0.95);
-}
-
-.portrait-photo-container {
-  width: 100%;
-  height: 100%;
-  border-radius: 110px 110px 8px 8px;
-  overflow: hidden;
-  background: #2b0205;
-  border: 2.5px solid #7c070c;
-  position: relative;
-}
-
-.portrait-photo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 12%;
-  filter: contrast(1.06) brightness(1.02);
-  transition: transform 0.8s ease;
-}
-
-.portrait-gold-arch:hover .portrait-photo-img {
-  transform: scale(1.04);
-}
-
-/* ĐÀI HOA SEN 3D BỰ GẤP ĐÔI NẰM PHÍA SAU NÂNG ĐỠ BÁC */
-.sacred-lotus-altar {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  pointer-events: none;
-}
-
-.lotus-radiance-aura {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 520px;
-  height: 340px;
-  background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.45) 0%, rgba(218, 37, 29, 0.28) 50%, transparent 75%);
-  filter: blur(28px);
-  pointer-events: none;
-  z-index: 1;
-  animation: auraBreathe 4s ease-in-out infinite alternate;
-}
-
-@keyframes auraBreathe {
-  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.7; }
-  100% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
-}
-
-.sacred-lotus-img {
-  width: min(720px, 104vw);
-  max-width: none;
+.bac-ho-lotus-composition {
+  display: block;
+  width: min(900px, 100%);
+  max-width: 100%;
   height: auto;
   position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 38px rgba(255, 215, 0, 0.65));
-  animation: lotusHover 6s ease-in-out infinite alternate;
+  z-index: 10;
+  filter: drop-shadow(0 10px 32px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 36px rgba(255, 215, 0, 0.5));
 }
 
-@keyframes lotusHover {
-  0% { transform: translateY(0) scale(0.98); }
-  100% { transform: translateY(-7px) scale(1.02); }
-}
-
-/* Dải lụa nghi thức nằm phía trước dưới chân dung Bác */
+/* Dải lụa nghi thức dưới hình ảnh */
 .lotus-ceremonial-banner {
-  margin-top: -14px;
+  margin-top: 0.35rem;
   position: relative;
   z-index: 15;
   display: flex;
@@ -415,7 +333,7 @@ body::before {
   letter-spacing: 1.5px;
 }
 
-/* Nút vào trang & Bộ đếm ngược */
+/* Nút vào trang */
 .splash-actions {
   display: flex;
   flex-direction: column;
@@ -458,17 +376,12 @@ body::before {
   transform: translateX(4px);
 }
 
-.splash-timer-note {
+.splash-entry-note {
   font-size: 0.82rem;
   color: var(--text-muted);
   display: flex;
   align-items: center;
   gap: 0.4rem;
-}
-
-.splash-timer-note span {
-  color: var(--gold);
-  font-weight: 700;
 }
 
 /* Hiệu ứng cánh sen bay nhẹ */
@@ -1478,22 +1391,8 @@ body::before {
     font-size: 1.85rem;
     letter-spacing: 2px;
   }
-  .portrait-gold-arch {
-    width: 240px;
-    height: 320px;
-    border-radius: 120px 120px 14px 14px;
-  }
-  .portrait-photo-container {
-    border-radius: 110px 110px 8px 8px;
-  }
-  .sacred-lotus-altar {
-    transform: translateX(-50%);
-  }
-  .sacred-lotus-img {
-    width: min(620px, 104vw);
-  }
   .lotus-ceremonial-banner {
-    margin-top: -12px;
+    margin-top: 0.25rem;
     padding: 0.3rem 1.1rem;
   }
   .lotus-banner-caption {
@@ -1538,22 +1437,8 @@ body::before {
     font-size: 1.45rem;
     letter-spacing: 1.5px;
   }
-  .portrait-gold-arch {
-    width: 200px;
-    height: 270px;
-    border-radius: 100px 100px 12px 12px;
-  }
-  .portrait-photo-container {
-    border-radius: 92px 92px 8px 8px;
-  }
-  .sacred-lotus-altar {
-    transform: translateX(-50%);
-  }
-  .sacred-lotus-img {
-    width: min(460px, 104vw);
-  }
   .lotus-ceremonial-banner {
-    margin-top: -10px;
+    margin-top: 0.2rem;
     padding: 0.25rem 1rem;
   }
   .lotus-banner-caption {

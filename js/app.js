@@ -32,33 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initSplashScreen() {
   const splashOverlay = document.getElementById('splashOverlay');
   const enterBtn = document.getElementById('btnEnterPortal');
-  const timerCountdown = document.getElementById('timerCountdown');
   const reopenBtn = document.getElementById('btnReopenSplash');
 
   if (!splashOverlay) return;
 
-  let countdownSeconds = 5;
-  let countdownInterval = null;
-
-  const startCountdown = () => {
-    countdownSeconds = 5;
-    if (timerCountdown) timerCountdown.textContent = countdownSeconds;
-    
-    clearInterval(countdownInterval);
-    countdownInterval = setInterval(() => {
-      countdownSeconds--;
-      if (timerCountdown) {
-        timerCountdown.textContent = countdownSeconds;
-      }
-      if (countdownSeconds <= 0) {
-        clearInterval(countdownInterval);
-        closeSplash();
-      }
-    }, 1000);
-  };
-
   const closeSplash = () => {
-    clearInterval(countdownInterval);
     splashOverlay.classList.add('hidden');
     document.body.style.overflow = 'auto';
   };
@@ -66,7 +44,6 @@ function initSplashScreen() {
   const openSplash = () => {
     splashOverlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-    startCountdown();
   };
 
   if (enterBtn) {
@@ -96,9 +73,8 @@ function initSplashScreen() {
     }
   });
 
-  // Tự động đếm ngược khi tải trang
+  // Giữ popup mở cho đến khi người dùng chủ động đóng
   document.body.style.overflow = 'hidden';
-  startCountdown();
 }
 
 /* ==========================================================================
