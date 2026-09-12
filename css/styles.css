@@ -507,6 +507,47 @@ body::before {
   align-items: center;
   text-decoration: none;
   color: inherit;
+  gap: 0.85rem;
+}
+
+.nav-brand-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.45));
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.nav-brand:hover .nav-brand-logo {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.splash-emblem-wrap {
+  margin-bottom: 0.85rem;
+  display: flex;
+  justify-content: center;
+}
+
+.splash-emblem-img {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.65));
+  box-shadow: 0 0 20px rgba(185, 14, 22, 0.6);
+  animation: auraPulse 4s ease-in-out infinite alternate;
+}
+
+.footer-emblem-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin: 0 auto 1.25rem;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.5));
 }
 
 .nav-brand-text h1 {
