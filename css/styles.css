@@ -304,7 +304,7 @@ body::before {
 /* ĐÀI HOA SEN 3D HOÀNG KIM NÂNG ĐỠ DƯỚI CHÂN BÁC */
 .sacred-lotus-altar {
   position: relative;
-  margin-top: -46px;
+  margin-top: -62px;
   z-index: 5;
   display: flex;
   flex-direction: column;
@@ -318,10 +318,10 @@ body::before {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 220px;
-  height: 150px;
-  background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.45) 0%, rgba(218, 37, 29, 0.3) 50%, transparent 75%);
-  filter: blur(18px);
+  width: 320px;
+  height: 200px;
+  background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.48) 0%, rgba(218, 37, 29, 0.32) 50%, transparent 75%);
+  filter: blur(22px);
   pointer-events: none;
   z-index: 1;
   animation: auraBreathe 4s ease-in-out infinite alternate;
@@ -333,12 +333,12 @@ body::before {
 }
 
 .sacred-lotus-img {
-  width: 235px;
-  max-width: 88vw;
+  width: 330px;
+  max-width: 92vw;
   height: auto;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 22px rgba(255, 215, 0, 0.55));
+  filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 28px rgba(255, 215, 0, 0.6));
   animation: lotusHover 6s ease-in-out infinite alternate;
 }
 
@@ -348,7 +348,7 @@ body::before {
 }
 
 .lotus-ceremonial-banner {
-  margin-top: -16px;
+  margin-top: -24px;
   position: relative;
   z-index: 3;
   display: flex;
@@ -357,15 +357,15 @@ body::before {
   background: linear-gradient(135deg, rgba(55, 4, 7, 0.95), rgba(125, 10, 18, 0.95));
   border: 1.5px solid var(--gold);
   border-radius: var(--radius-full);
-  padding: 0.28rem 1.2rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 14px rgba(255, 215, 0, 0.35);
+  padding: 0.32rem 1.4rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.75), 0 0 16px rgba(255, 215, 0, 0.4);
 }
 
 .lotus-banner-caption {
   font-family: var(--font-serif);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 1.8px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gold-light);
   white-space: nowrap;
@@ -1502,13 +1502,13 @@ body::before {
     border-radius: 110px 110px 8px 8px;
   }
   .sacred-lotus-altar {
-    margin-top: -50px;
+    margin-top: -56px;
   }
   .sacred-lotus-img {
-    width: 260px;
+    width: 295px;
   }
   .lotus-ceremonial-banner {
-    margin-top: -18px;
+    margin-top: -20px;
     padding: 0.35rem 1.2rem;
   }
   .lotus-banner-caption {
@@ -1552,13 +1552,13 @@ body::before {
     border-radius: 92px 92px 8px 8px;
   }
   .sacred-lotus-altar {
-    margin-top: -42px;
+    margin-top: -48px;
   }
   .sacred-lotus-img {
-    width: 220px;
+    width: 255px;
   }
   .lotus-ceremonial-banner {
-    margin-top: -15px;
+    margin-top: -18px;
     padding: 0.25rem 1rem;
   }
   .lotus-banner-caption {
