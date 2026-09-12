@@ -12,8 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Merriweather:ital,wght@0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
 
   <!-- Favicon & Touch Icon -->
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
 
   <!-- Tệp định dạng CSS -->
   <link rel="stylesheet" href="css/styles.css">
@@ -34,7 +36,7 @@
     <div class="splash-content">
       <!-- Biểu tượng Đảng trang trọng -->
       <div class="splash-emblem-wrap">
-        <img src="assets/logo.png" alt="Biểu tượng Đảng Cộng sản" class="splash-emblem-img">
+        <img src="assets/co-dang.png" alt="Cờ Đảng Cộng sản Việt Nam" class="splash-emblem-img">
       </div>
 
       <!-- Tiêu đề trang nghiêm -->
@@ -115,7 +117,7 @@
        ======================================================================== -->
   <nav class="top-navbar">
     <a href="#" class="nav-brand">
-      <img src="assets/logo.png" alt="Biểu tượng Đảng" class="nav-brand-logo">
+      <img src="assets/co-dang.png" alt="Cờ Đảng Cộng Sản Việt Nam" class="nav-brand-logo">
       <div class="nav-brand-text">
         <h1>Cổng Di Sản Thực Tế Ảo 3D</h1>
         <span>CHỦ TỊCH HỒ CHÍ MINH & CÁC ĐỊA DANH LỊCH SỬ</span>
@@ -130,78 +132,16 @@
         </svg>
         <span id="liveClockText">Đang tải thời gian...</span>
       </div>
-
-      <!-- Nút xem lại màn hình chào Bác Hồ & Sen -->
-      <button id="btnReopenSplash" class="btn-reopen-splash" title="Xem lại màn hình Bác Hồ & Hoa Sen">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-        <span>Màn hình Bác Hồ & Sen</span>
-      </button>
     </div>
   </nav>
 
   <!-- ========================================================================
-       3. BANNER CHÍNH CỔNG THÔNG TIN (HERO SECTION)
-       ======================================================================== -->
-  <header class="portal-hero">
-    <img src="assets/dong-son.svg" class="hero-ornament-left" alt="Hoa văn trống đồng">
-    <img src="assets/dong-son.svg" class="hero-ornament-right" alt="Hoa văn trống đồng">
-
-    <div class="hero-badge">
-      <svg viewBox="0 0 24 24">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-      </svg>
-      CÔNG NGHỆ THỰC TẾ ẢO 3D SMART HERITAGE & SMART MUSEUM
-    </div>
-
-    <h2 class="portal-title">CỔNG KHÔNG GIAN DI SẢN THỰC TẾ ẢO 3D</h2>
-    <p class="portal-subtitle">
-      Hành trình theo chân Chủ tịch Hồ Chí Minh qua không gian số 360° tương tác trực quan, kết nối từ quê hương Làng Sen - Kim Liên đến Bến Nhà Rồng lịch sử.
-    </p>
-
-    <div class="hero-slogan-strip">
-      ★ HÀNH TRÌNH THEO CHÂN BÁC QUA KHÔNG GIAN SỐ 360° ★
-    </div>
-  </header>
-
-  <!-- ========================================================================
-       4. THANH CÔNG CỤ TÌM KIẾM & BỘ LỌC
-       ======================================================================== -->
-  <section class="controls-section">
-    <!-- Thanh tìm kiếm trực tiếp -->
-    <div class="search-bar-wrap">
-      <svg class="search-icon-left" viewBox="0 0 24 24">
-        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-      </svg>
-      <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm địa danh (VD: Kim Liên, Bến Nhà Rồng, Nghệ An, TP.HCM...)" autocomplete="off">
-      <button id="searchClearBtn" class="search-clear-btn" title="Xóa tìm kiếm">✕</button>
-    </div>
-
-    <!-- Các Tab lọc danh mục -->
-    <div class="filter-tabs-wrapper">
-      <button class="filter-tab-btn active" data-filter="all">
-        <span>Tất Cả Di Tích 3D</span>
-        <span class="badge-count">2</span>
-      </button>
-      <button class="filter-tab-btn" data-filter="kim-lien">
-        <span>Quê Hương Bác — Kim Liên</span>
-        <span class="badge-count">1</span>
-      </button>
-      <button class="filter-tab-btn" data-filter="ben-nha-rong">
-        <span>Bến Nhà Rồng — TP.HCM</span>
-        <span class="badge-count">1</span>
-      </button>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       5. SHOWCASE 2 LIÊN KẾT DI TÍCH 3D TRỌNG ĐIỂM
+       3. KHÁM PHÁ CÁC DI TÍCH LỊCH SỬ SỐ HÓA
        ======================================================================== -->
   <main class="main-container">
 
     <div class="section-intro-heading">
-      <h3>Khám Phá Các Di Tích Lịch Sử Số Hóa</h3>
+      <h2>Khám Phá Các Di Tích Lịch Sử Số Hóa</h2>
       <p>Chọn một địa danh bên dưới để bước vào không gian thực tế ảo 360° tương tác tự do</p>
     </div>
 
@@ -438,7 +378,7 @@
        ======================================================================== -->
   <footer class="portal-footer">
     <div class="footer-inner">
-      <img src="assets/logo.png" alt="Biểu tượng Đảng" class="footer-emblem-logo">
+      <img src="assets/co-dang.png" alt="Cờ Đảng Cộng Sản Việt Nam" class="footer-emblem-logo">
       <h3 class="footer-title">CỔNG KHÔNG GIAN DI SẢN THỰC TẾ ẢO 3D - CHỦ TỊCH HỒ CHÍ MINH</h3>
       <p class="footer-quote">
         “Đoàn kết, đoàn kết, đại đoàn kết<br>
