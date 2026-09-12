@@ -258,33 +258,36 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
+/* Ảnh Bác Hồ NẰM ĐÈ LÊN TRÊN hoa sen (z-index: 10) */
 .portrait-gold-arch {
-  width: 220px;
-  height: 295px;
-  border-radius: 110px 110px 12px 12px;
-  padding: 7px;
+  width: 235px;
+  height: 315px;
+  border-radius: 118px 118px 14px 14px;
+  padding: 8px;
   background: linear-gradient(135deg, #fff3b0 0%, #f1b72c 35%, #d4900c 70%, #9e6300 100%);
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.55), 0 16px 40px rgba(0, 0, 0, 0.85);
-  border: 2px solid #ffeaa7;
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.65), 0 20px 50px rgba(0, 0, 0, 0.9);
+  border: 2.5px solid #ffeaa7;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
 .portrait-gold-arch:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 55px rgba(255, 215, 0, 0.75), 0 20px 50px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 65px rgba(255, 215, 0, 0.8), 0 25px 60px rgba(0, 0, 0, 0.95);
 }
 
 .portrait-photo-container {
   width: 100%;
   height: 100%;
-  border-radius: 104px 104px 8px 8px;
+  border-radius: 110px 110px 8px 8px;
   overflow: hidden;
   background: #2b0205;
-  border: 2px solid #7c070c;
+  border: 2.5px solid #7c070c;
   position: relative;
 }
 
@@ -301,27 +304,29 @@ body::before {
   transform: scale(1.04);
 }
 
-/* ĐÀI HOA SEN 3D HOÀNG KIM NÂNG ĐỠ DƯỚI CHÂN BÁC */
+/* ĐÀI HOA SEN 3D BỰ GẤP ĐÔI NẰM PHÍA SAU NÂNG ĐỠ BÁC */
 .sacred-lotus-altar {
-  position: relative;
-  margin-top: -62px;
-  z-index: 5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
+  pointer-events: none;
 }
 
 .lotus-radiance-aura {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
-  height: 200px;
-  background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.48) 0%, rgba(218, 37, 29, 0.32) 50%, transparent 75%);
-  filter: blur(22px);
+  width: 520px;
+  height: 340px;
+  background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.45) 0%, rgba(218, 37, 29, 0.28) 50%, transparent 75%);
+  filter: blur(28px);
   pointer-events: none;
   z-index: 1;
   animation: auraBreathe 4s ease-in-out infinite alternate;
@@ -333,28 +338,29 @@ body::before {
 }
 
 .sacred-lotus-img {
-  width: 330px;
-  max-width: 92vw;
+  width: 580px;
+  max-width: 95vw;
   height: auto;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 28px rgba(255, 215, 0, 0.6));
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 38px rgba(255, 215, 0, 0.65));
   animation: lotusHover 6s ease-in-out infinite alternate;
 }
 
 @keyframes lotusHover {
   0% { transform: translateY(0) scale(0.98); }
-  100% { transform: translateY(-6px) scale(1.02); }
+  100% { transform: translateY(-7px) scale(1.02); }
 }
 
+/* Dải lụa nghi thức nằm phía trước dưới chân dung Bác */
 .lotus-ceremonial-banner {
-  margin-top: -24px;
+  margin-top: -14px;
   position: relative;
-  z-index: 3;
+  z-index: 15;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(55, 4, 7, 0.95), rgba(125, 10, 18, 0.95));
+  background: linear-gradient(135deg, rgba(55, 4, 7, 0.98), rgba(125, 10, 18, 0.98));
   border: 1.5px solid var(--gold);
   border-radius: var(--radius-full);
   padding: 0.32rem 1.4rem;
@@ -1502,14 +1508,15 @@ body::before {
     border-radius: 110px 110px 8px 8px;
   }
   .sacred-lotus-altar {
-    margin-top: -56px;
+    transform: translate(-50%, -36%);
   }
   .sacred-lotus-img {
-    width: 295px;
+    width: 480px;
+    max-width: 95vw;
   }
   .lotus-ceremonial-banner {
-    margin-top: -20px;
-    padding: 0.35rem 1.2rem;
+    margin-top: -12px;
+    padding: 0.3rem 1.1rem;
   }
   .lotus-banner-caption {
     font-size: 0.75rem;
@@ -1552,13 +1559,14 @@ body::before {
     border-radius: 92px 92px 8px 8px;
   }
   .sacred-lotus-altar {
-    margin-top: -48px;
+    transform: translate(-50%, -34%);
   }
   .sacred-lotus-img {
-    width: 255px;
+    width: 380px;
+    max-width: 96vw;
   }
   .lotus-ceremonial-banner {
-    margin-top: -18px;
+    margin-top: -10px;
     padding: 0.25rem 1rem;
   }
   .lotus-banner-caption {
