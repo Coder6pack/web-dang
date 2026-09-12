@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="starGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff4b8" />
+      <stop offset="40%" stop-color="#ffde00" />
+      <stop offset="100%" stop-color="#d49400" />
+    </linearGradient>
+    <filter id="starGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#ffde00" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <polygon filter="url(#starGlow)" fill="url(#starGold)" points="50,5 64,36 98,36 71,57 81,90 50,70 19,90 29,57 2,36 36,36" />
+</svg>

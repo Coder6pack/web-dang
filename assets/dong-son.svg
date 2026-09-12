@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <radialGradient id="drumGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe17d" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#d4900c" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#996000" stop-opacity="0.1" />
+    </radialGradient>
+  </defs>
+
+  <g fill="none" stroke="#e5a928" stroke-width="1.5" opacity="0.85">
+    <!-- Outer concentric circles -->
+    <circle cx="250" cy="250" r="240" stroke-width="3" />
+    <circle cx="250" cy="250" r="232" stroke-dasharray="4,4" />
+    <circle cx="250" cy="250" r="222" stroke-width="2" />
+    <circle cx="250" cy="250" r="206" stroke-width="1.5" />
+    <circle cx="250" cy="250" r="186" stroke-dasharray="6,4" />
+    <circle cx="250" cy="250" r="172" stroke-width="2" />
+    <circle cx="250" cy="250" r="148" stroke-width="1.5" />
+    <circle cx="250" cy="250" r="124" stroke-dasharray="5,3" />
+    <circle cx="250" cy="250" r="106" stroke-width="2" />
+    <circle cx="250" cy="250" r="76" stroke-width="2" />
+    <circle cx="250" cy="250" r="42" stroke-width="2" />
+
+    <!-- 14-pointed Star Sun in the center -->
+    <g fill="#e5a928" stroke="none">
+      <!-- 14 tia sáng mặt trời -->
+      <polygon points="250,175 254,235 250,250 246,235" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(25.71 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(51.42 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(77.13 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(102.84 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(128.55 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(154.26 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(179.97 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(205.68 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(231.39 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(257.1 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(282.81 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(308.52 250 250)" />
+      <polygon points="250,175 254,235 250,250 246,235" transform="rotate(334.23 250 250)" />
+      <!-- Trung tâm -->
+      <circle cx="250" cy="250" r="16" fill="url(#drumGlow)" stroke="#fbd24e" stroke-width="2" />
+    </g>
+
+    <!-- Ring of Chim Lạc (Flying Lac birds) motif around radius 160 -->
+    <!-- Stylized flying crane / chim lạc vectors repeated -->
+    <g stroke="#e5a928" stroke-width="1.8" fill="none">
+      <!-- 8 chim lạc bay ngược chiều kim đồng hồ -->
+      <g id="chimLac">
+        <path d="M 230 96 C 242 90 262 90 274 98 C 285 106 288 116 280 114 C 270 111 262 104 250 105 C 240 106 234 115 224 116 C 218 117 218 108 230 96 Z" fill="#e5a928" fill-opacity="0.3"/>
+        <path d="M 274 98 L 295 94 C 298 93 294 99 288 102 Z" fill="#e5a928" />
+        <path d="M 224 116 L 210 125 M 220 118 L 206 128" />
+      </g>
+      <use href="#chimLac" transform="rotate(45 250 250)" />
+      <use href="#chimLac" transform="rotate(90 250 250)" />
+      <use href="#chimLac" transform="rotate(135 250 250)" />
+      <use href="#chimLac" transform="rotate(180 250 250)" />
+      <use href="#chimLac" transform="rotate(225 250 250)" />
+      <use href="#chimLac" transform="rotate(270 250 250)" />
+      <use href="#chimLac" transform="rotate(315 250 250)" />
+    </g>
+
+    <!-- Răng cưa & tam giác trang trí (Sawtooth pattern) ring -->
+    <g stroke="#e5a928" stroke-width="1" fill="#e5a928" fill-opacity="0.4">
+      <path d="M 250 36 L 246 42 L 254 42 Z" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(15 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(30 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(45 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(60 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(75 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(90 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(105 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(120 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(135 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(150 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(165 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(180 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(195 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(210 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(225 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(240 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(255 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(270 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(285 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(300 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(315 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(330 250 250)" />
+      <path d="M 250 36 L 246 42 L 254 42 Z" transform="rotate(345 250 250)" />
+    </g>
+  </g>
+</svg>

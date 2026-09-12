@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cổng Không Gian Di Sản Thực Tế Ảo 3D - Chủ Tịch Hồ Chí Minh</title>
+  <meta name="description" content="Cổng thông tin kết nối không gian thực tế ảo 3D 360 độ các di tích lịch sử quốc gia gắn liền với cuộc đời và sự nghiệp Chủ tịch Hồ Chí Minh.">
+
+  <!-- Google Fonts: Be Vietnam Pro & Merriweather -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Merriweather:ital,wght@0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+
+  <!-- Tệp định dạng CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. MÀN HÌNH CHÀO MỪNG (SPLASH / INTRO SCREEN - BÁC HỒ & HOA SEN)
+       ======================================================================== -->
+  <div id="splashOverlay" class="splash-overlay">
+    <!-- Hào quang ánh sáng & Họa tiết Trống đồng xoay chậm -->
+    <div class="splash-aura"></div>
+    <img src="assets/dong-son.svg" class="splash-drum-bg" alt="Trống đồng Đông Sơn">
+    
+    <!-- Cánh sen rơi lơ lửng -->
+    <div id="petalsContainer" class="floating-petals-container"></div>
+
+    <div class="splash-content">
+      <!-- Tiêu đề trang nghiêm -->
+      <div class="splash-title-wrap">
+        <h2>Đảng Cộng Sản Việt Nam Quang Vinh Muôn Năm</h2>
+        <p>Chủ tịch Hồ Chí Minh vĩ đại sống mãi trong sự nghiệp của chúng ta</p>
+      </div>
+
+      <!-- KHU VỰC TÔN VINH BÁC HỒ VÀ HOA SEN (TO LỚN, RÕ NÉT, TRANG NGHIÊM) -->
+      <div class="splash-grand-composition">
+        
+        <!-- Cụm trung tâm: Đóa Sen Trái — Bác Hồ — Đóa Sen Phải -->
+        <div class="splash-center-triptych">
+          <!-- Đóa sen hồng rực rỡ bên trái -->
+          <div class="flanking-lotus flanking-lotus-left" title="Đóa Sen Hồng Thanh Khiết">
+            <div class="flanking-lotus-frame">
+              <img src="assets/lotus-pink-hq.jpg" alt="Đóa Sen Hồng">
+            </div>
+            <span class="flanking-lotus-label">Thanh Khiết</span>
+          </div>
+
+          <!-- Khung Chân dung Bác Hồ to lớn, trang nghiêm, rõ nét từng chi tiết -->
+          <div class="portrait-grand-monument">
+            <div class="portrait-gold-arch">
+              <div class="portrait-photo-container">
+                <img src="assets/bac-ho.jpg" alt="Chủ tịch Hồ Chí Minh vĩ đại" class="portrait-photo-img">
+              </div>
+            </div>
+          </div>
+
+          <!-- Đóa sen hồng rực rỡ bên phải -->
+          <div class="flanking-lotus flanking-lotus-right" title="Đóa Sen Hồng Ngát Hương">
+            <div class="flanking-lotus-frame">
+              <img src="assets/lotus-new.jpg" alt="Đóa Sen Ngát Hương">
+            </div>
+            <span class="flanking-lotus-label">Ngát Hương</span>
+          </div>
+        </div>
+
+        <!-- Bệ Hoa Sen Dâng Lên Người Đặt Hoàn Toàn Bên Dưới Khung Ảnh (KHÔNG HỀ CHE BÁC) -->
+        <div class="grand-lotus-pedestal">
+          <div class="pedestal-lotus-cluster">
+            <img src="assets/lotus-art.svg" class="pedestal-lotus-art" alt="Hoa sen nghệ thuật">
+            <div class="pedestal-banner-text">
+              ★ ĐÓA SEN NGÁT HƯƠNG DÂNG LÊN NGƯỜI ★
+            </div>
+            <img src="assets/lotus-art.svg" class="pedestal-lotus-art right" alt="Hoa sen nghệ thuật">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lời thơ & Lời dặn bất hủ của Bác Hồ -->
+      <div class="splash-quote-box">
+        <p class="splash-poetry">“Tháp Mười đẹp nhất bông sen<br>Việt Nam đẹp nhất có tên Bác Hồ”</p>
+        <p class="splash-slogan">“Không có gì quý hơn độc lập, tự do!”</p>
+        <span class="splash-author">— CHỦ TỊCH HỒ CHÍ MINH —</span>
+      </div>
+
+      <!-- Nút vào Cổng Thông Tin & Bộ đếm thời gian -->
+      <div class="splash-actions">
+        <button id="btnEnterPortal" class="btn-enter-portal">
+          <span>Vào Cổng Liên Kết</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+        <div class="splash-timer-note">
+          Tự động chuyển tiếp sau <span id="timerCountdown">5</span>s (hoặc nhấn phím ESC)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2. THANH ĐIỀU HƯỚNG TRÊN CÙNG (TOP NAVIGATION)
+       ======================================================================== -->
+  <nav class="top-navbar">
+    <a href="#" class="nav-brand">
+      <div class="nav-brand-text">
+        <h1>Cổng Di Sản Thực Tế Ảo 3D</h1>
+        <span>CHỦ TỊCH HỒ CHÍ MINH & CÁC ĐỊA DANH LỊCH SỬ</span>
+      </div>
+    </a>
+
+    <div class="nav-utilities">
+      <!-- Đồng hồ thời gian thực -->
+      <div class="live-clock-badge" title="Thời gian hiện tại">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+        </svg>
+        <span id="liveClockText">Đang tải thời gian...</span>
+      </div>
+
+      <!-- Nút xem lại màn hình chào Bác Hồ & Sen -->
+      <button id="btnReopenSplash" class="btn-reopen-splash" title="Xem lại màn hình Bác Hồ & Hoa Sen">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span>Màn hình Bác Hồ & Sen</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       3. BANNER CHÍNH CỔNG THÔNG TIN (HERO SECTION)
+       ======================================================================== -->
+  <header class="portal-hero">
+    <img src="assets/dong-son.svg" class="hero-ornament-left" alt="Hoa văn trống đồng">
+    <img src="assets/dong-son.svg" class="hero-ornament-right" alt="Hoa văn trống đồng">
+
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+      </svg>
+      CÔNG NGHỆ THỰC TẾ ẢO 3D SMART HERITAGE & SMART MUSEUM
+    </div>
+
+    <h2 class="portal-title">CỔNG KHÔNG GIAN DI SẢN THỰC TẾ ẢO 3D</h2>
+    <p class="portal-subtitle">
+      Hành trình theo chân Chủ tịch Hồ Chí Minh qua không gian số 360° tương tác trực quan, kết nối từ quê hương Làng Sen - Kim Liên đến Bến Nhà Rồng lịch sử.
+    </p>
+
+    <div class="hero-slogan-strip">
+      ★ HÀNH TRÌNH THEO CHÂN BÁC QUA KHÔNG GIAN SỐ 360° ★
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       4. THANH CÔNG CỤ TÌM KIẾM & BỘ LỌC
+       ======================================================================== -->
+  <section class="controls-section">
+    <!-- Thanh tìm kiếm trực tiếp -->
+    <div class="search-bar-wrap">
+      <svg class="search-icon-left" viewBox="0 0 24 24">
+        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+      <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm địa danh (VD: Kim Liên, Bến Nhà Rồng, Nghệ An, TP.HCM...)" autocomplete="off">
+      <button id="searchClearBtn" class="search-clear-btn" title="Xóa tìm kiếm">✕</button>
+    </div>
+
+    <!-- Các Tab lọc danh mục -->
+    <div class="filter-tabs-wrapper">
+      <button class="filter-tab-btn active" data-filter="all">
+        <span>Tất Cả Di Tích 3D</span>
+        <span class="badge-count">2</span>
+      </button>
+      <button class="filter-tab-btn" data-filter="kim-lien">
+        <span>Quê Hương Bác — Kim Liên</span>
+        <span class="badge-count">1</span>
+      </button>
+      <button class="filter-tab-btn" data-filter="ben-nha-rong">
+        <span>Bến Nhà Rồng — TP.HCM</span>
+        <span class="badge-count">1</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. SHOWCASE 2 LIÊN KẾT DI TÍCH 3D TRỌNG ĐIỂM
+       ======================================================================== -->
+  <main class="main-container">
+
+    <div class="section-intro-heading">
+      <h3>Khám Phá Các Di Tích Lịch Sử Số Hóa</h3>
+      <p>Chọn một địa danh bên dưới để bước vào không gian thực tế ảo 360° tương tác tự do</p>
+    </div>
+
+    <div class="showcase-grid">
+
+      <!-- ==================== LIÊN KẾT 1: KHU DI TÍCH KIM LIÊN ==================== -->
+      <article class="tour-card-3d" 
+               data-category="kim-lien" 
+               data-title="Khu Di Tích Quốc Gia Đặc Biệt Kim Liên" 
+               data-desc="Khám phá không gian thực tế ảo 3D Nhà tưởng niệm Chủ tịch Hồ Chí Minh tại Khu di tích Quốc gia đặc biệt Kim Liên, Nam Đàn, Nghệ An - Quê hương Bác Hồ." 
+               data-location="Kim Liên, Nam Đàn, Tỉnh Nghệ An" 
+               data-url="https://sanpham.starglobal3d.vn/smart-heritage-3d/kdt-kim-lien/?startscene=scene_nha-tuong-niem-ho-chi-minh-view_(3)&startactions=lookat(2.59,1.46,141.52,0,0);" 
+               data-tags="kim liên nam đàn nghệ an làng sen quê bác nhà tưởng niệm di sản 3d smart heritage">
+        
+        <!-- Banner đầu thẻ -->
+        <div class="tour-banner-wrapper">
+          <img src="assets/lotus.jpg" alt="Làng Sen Kim Liên Nghệ An" class="tour-banner-img">
+          <div class="tour-banner-overlay"></div>
+          
+          <div class="vr-pulse-badge">
+            <span class="vr-pulse-dot"></span>
+            <span>SMART HERITAGE 3D</span>
+          </div>
+
+          <div class="location-tag">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Kim Liên, Nam Đàn, Tỉnh Nghệ An</span>
+          </div>
+        </div>
+
+        <!-- Thân thẻ -->
+        <div class="tour-body">
+          <div class="tour-header">
+            <span class="tour-subheading">Khu Di Tích Quốc Gia Đặc Biệt</span>
+            <h4 class="tour-title">Nhà Tưởng Niệm Chủ Tịch Hồ Chí Minh — KĐT Kim Liên</h4>
+          </div>
+
+          <p class="tour-desc">
+            Trải nghiệm không gian thực tế ảo 3D 360° đưa bạn về thăm quê hương Làng Sen, chiêm bái Nhà tưởng niệm Bác Hồ tôn nghiêm với góc nhìn toàn cảnh sắc nét và thuyết minh sống động.
+          </p>
+
+          <!-- Danh sách điểm nhấn -->
+          <ul class="tour-features-list">
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span>Tương tác xoay 360° tự do trong Nhà Tưởng Niệm Bác</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span>Tái hiện không gian văn hóa Làng Sen mộc mạc, thiêng liêng</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span>Công nghệ số hóa di sản Smart Heritage 3D độ phân giải cao</span>
+            </li>
+          </ul>
+
+          <!-- Các nút hành động -->
+          <div class="tour-actions-wrap">
+            <a href="https://sanpham.starglobal3d.vn/smart-heritage-3d/kdt-kim-lien/?startscene=scene_nha-tuong-niem-ho-chi-minh-view_(3)&startactions=lookat(2.59,1.46,141.52,0,0);" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-primary-explore">
+              <span>Tham Quan 3D 360° Ngay</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <div class="tour-secondary-actions">
+              <button class="btn-preview-modal" 
+                      data-tour-url="https://sanpham.starglobal3d.vn/smart-heritage-3d/kdt-kim-lien/?startscene=scene_nha-tuong-niem-ho-chi-minh-view_(3)&startactions=lookat(2.59,1.46,141.52,0,0);"
+                      data-tour-title="Khu Di Tích Kim Liên — Nhà Tưởng Niệm Bác Hồ (3D 360°)">
+                <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                <span>Xem trực tiếp tại đây</span>
+              </button>
+
+              <button class="btn-copy-tour-url" 
+                      data-url="https://sanpham.starglobal3d.vn/smart-heritage-3d/kdt-kim-lien/?startscene=scene_nha-tuong-niem-ho-chi-minh-view_(3)&startactions=lookat(2.59,1.46,141.52,0,0);" 
+                      title="Sao chép liên kết">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                <span>Sao chép link</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- ==================== LIÊN KẾT 2: BẾN NHÀ RỒNG ==================== -->
+      <article class="tour-card-3d" 
+               data-category="ben-nha-rong" 
+               data-title="Bảo Tàng Hồ Chí Minh - Bến Nhà Rồng" 
+               data-desc="Tham quan thực tế ảo 3D Bến Nhà Rồng - Di tích lịch sử nơi người thanh niên yêu nước Nguyễn Tất Thành ra đi tìm đường cứu nước ngày 5/6/1911." 
+               data-location="Số 1 Nguyễn Tất Thành, Quận 4, TP. Hồ Chí Minh" 
+               data-url="https://sanpham.starglobal3d.com/smart-museum-3d/ben-nha-rong/?startscene=scene_bnr_view4&startactions=lookat(-23.59,-2.13,88.09,0,0);" 
+               data-tags="bến nhà rồng bảo tàng hồ chí minh nguyễn tất thành ra đi tìm đường cứu nước sài gòn tphcm smart museum 3d">
+        
+        <!-- Banner đầu thẻ -->
+        <div class="tour-banner-wrapper">
+          <img src="assets/ben-nha-rong.jpg" alt="Bảo tàng Hồ Chí Minh Bến Nhà Rồng TP.HCM" class="tour-banner-img">
+          <div class="tour-banner-overlay"></div>
+          
+          <div class="vr-pulse-badge">
+            <span class="vr-pulse-dot"></span>
+            <span>SMART MUSEUM 3D</span>
+          </div>
+
+          <div class="location-tag">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Số 1 Nguyễn Tất Thành, Quận 4, TP.HCM</span>
+          </div>
+        </div>
+
+        <!-- Thân thẻ -->
+        <div class="tour-body">
+          <div class="tour-header">
+            <span class="tour-subheading">Di Tích Lịch Sử Quốc Gia</span>
+            <h4 class="tour-title">Bến Nhà Rồng — Nơi Người Ra Đi Tìm Đường Cứu Nước</h4>
+          </div>
+
+          <p class="tour-desc">
+            Khám phá toàn cảnh Bến Nhà Rồng lịch sử - nơi ngày 5/6/1911 người thanh niên yêu nước Nguyễn Tất Thành bước chân xuống con tàu Amiral Latouche-Tréville ra đi tìm đường cứu nước.
+          </p>
+
+          <!-- Danh sách điểm nhấn -->
+          <ul class="tour-features-list">
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span>Góc nhìn 3D 360° hướng ra bến cảng sông Sài Gòn lịch sử</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span>Chiêm ngưỡng kiến trúc đặc trưng và các phòng trưng bày kỷ vật Bác</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              <span>Nền tảng bảo tàng số thông minh Smart Museum 3D đa tiện ích</span>
+            </li>
+          </ul>
+
+          <!-- Các nút hành động -->
+          <div class="tour-actions-wrap">
+            <a href="https://sanpham.starglobal3d.com/smart-museum-3d/ben-nha-rong/?startscene=scene_bnr_view4&startactions=lookat(-23.59,-2.13,88.09,0,0);" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-primary-explore">
+              <span>Tham Quan 3D 360° Ngay</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <div class="tour-secondary-actions">
+              <button class="btn-preview-modal" 
+                      data-tour-url="https://sanpham.starglobal3d.com/smart-museum-3d/ben-nha-rong/?startscene=scene_bnr_view4&startactions=lookat(-23.59,-2.13,88.09,0,0);"
+                      data-tour-title="Bến Nhà Rồng — Bảo Tàng Hồ Chí Minh (3D 360°)">
+                <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                <span>Xem trực tiếp tại đây</span>
+              </button>
+
+              <button class="btn-copy-tour-url" 
+                      data-url="https://sanpham.starglobal3d.com/smart-museum-3d/ben-nha-rong/?startscene=scene_bnr_view4&startactions=lookat(-23.59,-2.13,88.09,0,0);" 
+                      title="Sao chép liên kết">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                <span>Sao chép link</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+    </div>
+
+    <!-- Khung khi không tìm thấy kết quả tìm kiếm -->
+    <div id="noResults" class="no-results-box">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+      </svg>
+      <h3>Không tìm thấy địa danh phù hợp</h3>
+      <p>Vui lòng thử lại với từ khóa khác (ví dụ: Kim Liên, Bến Nhà Rồng, Nghệ An, TP.HCM...)</p>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================
+       6. CỬA SỔ XEM TRỰC TIẾP 3D (3D PREVIEW MODAL)
+       ======================================================================== -->
+  <div id="modal3DPreview" class="modal-preview-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-preview-window">
+      <div class="modal-preview-header">
+        <div class="modal-preview-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--gold)">
+            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+          </svg>
+          <span id="modalTitleText">Trải nghiệm không gian 3D 360°</span>
+        </div>
+        <div class="modal-preview-controls">
+          <a id="modalExternalBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-open-external-modal">
+            <span>Mở toàn màn hình</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          </a>
+          <button id="btnCloseModal" class="btn-close-modal" title="Đóng cửa sổ">✕</button>
+        </div>
+      </div>
+      <div class="modal-iframe-container">
+        <iframe id="modalIframe" src="about:blank" allow="fullscreen; xr-spatial-tracking; accelerometer; gyroscope" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       7. TOAST THÔNG BÁO SAO CHÉP LIÊN KẾT
+       ======================================================================== -->
+  <div id="toastNotice" class="toast-notice" role="alert">
+    <svg viewBox="0 0 24 24">
+      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+    </svg>
+    <span id="toastMessage">Đã sao chép liên kết thành công!</span>
+  </div>
+
+  <!-- Nút cuộn lên đầu trang -->
+  <button id="btnBackToTop" class="btn-back-to-top" title="Cuộn lên đầu trang">
+    <svg viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+
+  <!-- ========================================================================
+       8. CHÂN TRANG (FOOTER)
+       ======================================================================== -->
+  <footer class="portal-footer">
+    <div class="footer-inner">
+      <h3 class="footer-title">CỔNG KHÔNG GIAN DI SẢN THỰC TẾ ẢO 3D - CHỦ TỊCH HỒ CHÍ MINH</h3>
+      <p class="footer-quote">
+        “Đoàn kết, đoàn kết, đại đoàn kết<br>
+        Thành công, thành công, đại thành công!”
+      </p>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">
+        Trang web được xây dựng trang trọng nhằm kết nối và giới thiệu các di sản lịch sử số hóa 3D 360° về Chủ tịch Hồ Chí Minh.<br>
+        Dữ liệu thực tế ảo được cung cấp bởi nền tảng Smart Heritage 3D và Smart Museum 3D của Star Global 3D.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Script điều khiển -->
+  <script src="js/app.js"></script>
+</body>
+</html>
