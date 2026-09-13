@@ -172,6 +172,7 @@ body::before {
 
 .splash-corner-brand span {
   max-width: calc(100vw - 5.5rem);
+  white-space: nowrap;
   color: var(--gold-light);
   font-family: var(--font-serif);
   font-size: clamp(0.72rem, 1.4vw, 1.05rem);
@@ -202,6 +203,8 @@ body::before {
 }
 
 .splash-title-wrap {
+  width: 100%;
+  max-width: 100%;
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -212,9 +215,10 @@ body::before {
 
 .splash-grand-hero-title {
   font-family: var(--font-serif);
-  font-size: 1.95rem;
+  font-size: clamp(0.72rem, 3.25vw, 1.95rem);
   font-weight: 900;
-  letter-spacing: 1.8px;
+  letter-spacing: clamp(0px, 0.16vw, 1.8px);
+  white-space: nowrap;
   text-transform: uppercase;
   background: linear-gradient(180deg, #fff9d2 0%, #fbd54e 40%, #e6a00b 75%, #a86c00 100%);
   -webkit-background-clip: text;
@@ -248,7 +252,7 @@ body::before {
   width: 100%;
 }
 
-/* Ảnh kết hợp Bác Hồ, khung vàng và đài sen */
+/* Đài sen hồng trang trí cho màn hình chào */
 .portrait-grand-monument {
   position: relative;
   z-index: 3;
@@ -259,7 +263,7 @@ body::before {
   width: 100%;
 }
 
-.bac-ho-lotus-composition {
+.lotus-splash-image {
   display: block;
   width: min(900px, 100%);
   max-width: 100%;
@@ -1419,10 +1423,6 @@ body::before {
   .portal-subtitle {
     font-size: 0.95rem;
   }
-  .splash-grand-hero-title {
-    font-size: 1.85rem;
-    letter-spacing: 2px;
-  }
   .splash-poetry {
     font-size: 0.95rem;
   }
@@ -1456,10 +1456,6 @@ body::before {
     max-width: calc(100vw - 5rem);
     font-size: 0.7rem;
     letter-spacing: 0.8px;
-  }
-  .splash-grand-hero-title {
-    font-size: 1.45rem;
-    letter-spacing: 1.5px;
   }
   .nav-brand-text span {
     display: none;
