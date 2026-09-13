@@ -269,32 +269,6 @@ body::before {
   filter: drop-shadow(0 10px 32px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 36px rgba(255, 215, 0, 0.5));
 }
 
-/* Dải lụa nghi thức dưới hình ảnh */
-.lotus-ceremonial-banner {
-  margin-top: 0.35rem;
-  position: relative;
-  z-index: 15;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(55, 4, 7, 0.98), rgba(125, 10, 18, 0.98));
-  border: 1.5px solid var(--gold);
-  border-radius: var(--radius-full);
-  padding: 0.32rem 1.4rem;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.75), 0 0 16px rgba(255, 215, 0, 0.4);
-}
-
-.lotus-banner-caption {
-  font-family: var(--font-serif);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  white-space: nowrap;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-}
-
 /* Khối câu thơ & danh ngôn bất hủ */
 .splash-quote-box {
   background: rgba(45, 6, 9, 0.75);
@@ -1449,14 +1423,6 @@ body::before {
     font-size: 1.85rem;
     letter-spacing: 2px;
   }
-  .lotus-ceremonial-banner {
-    margin-top: 0.25rem;
-    padding: 0.3rem 1.1rem;
-  }
-  .lotus-banner-caption {
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-  }
   .splash-poetry {
     font-size: 0.95rem;
   }
@@ -1494,14 +1460,6 @@ body::before {
   .splash-grand-hero-title {
     font-size: 1.45rem;
     letter-spacing: 1.5px;
-  }
-  .lotus-ceremonial-banner {
-    margin-top: 0.2rem;
-    padding: 0.25rem 1rem;
-  }
-  .lotus-banner-caption {
-    font-size: 0.68rem;
-    letter-spacing: 1px;
   }
   .nav-brand-text span {
     display: none;
