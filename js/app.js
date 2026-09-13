@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. Đồng hồ thời gian thực
   initLiveClock();
 
-  // 6. Tìm kiếm & Lọc 2 địa danh di tích 3D
+  // 6. Tìm kiếm & Lọc các địa danh di tích 3D
   initSearchAndFilter();
 
   // 7. Cửa sổ xem trước 3D trực tiếp (Modal 3D Preview)
@@ -256,7 +256,7 @@ function escapeHtml(value) {
 }
 
 function renderOfficialLinks() {
-  const grid = document.getElementById('officialLinksGrid');
+  const grid = document.getElementById('tourShowcaseGrid');
   if (!grid) return;
 
   const locationIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
@@ -265,7 +265,7 @@ function renderOfficialLinks() {
   const copyIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>';
   const checkIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
 
-  grid.innerHTML = officialLinksData.map((link, index) => {
+  const cardsMarkup = officialLinksData.map((link, index) => {
     const cardClass = link.featured
       ? 'tour-card-3d official-tour-card-featured'
       : 'tour-card-3d';
@@ -275,7 +275,12 @@ function renderOfficialLinks() {
     `).join('');
 
     return `
-      <article class="${cardClass}">
+      <article class="${cardClass}"
+               data-category="official"
+               data-title="${escapeHtml(link.title)}"
+               data-desc="${escapeHtml(link.description)}"
+               data-location="${escapeHtml(link.domain)}"
+               data-tags="${escapeHtml([link.badge, link.category, link.title, link.domain].join(' '))}">
         <div class="tour-banner-wrapper">
           <img src="${escapeHtml(link.image)}" alt="${escapeHtml(link.title)}" class="tour-banner-img" loading="${index === 0 ? 'eager' : 'lazy'}">
           <div class="tour-banner-overlay"></div>
@@ -325,6 +330,8 @@ function renderOfficialLinks() {
       </article>
     `;
   }).join('');
+
+  grid.insertAdjacentHTML('beforeend', cardsMarkup);
 }
 
 /* ==========================================================================

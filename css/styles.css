@@ -837,37 +837,10 @@ body::before {
   margin: 0 auto;
 }
 
-/* Lưới 2 thẻ lớn hoành tráng */
+/* Lưới các thẻ di tích và liên kết chính thức */
 .showcase-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem;
-}
-
-/* Danh sách cổng liên kết chính thức, render bằng cùng component thẻ di tích */
-.official-links-section {
-  margin-top: 5rem;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(245, 179, 0, 0.3);
-}
-
-.official-links-intro {
-  margin-bottom: 2.8rem;
-}
-
-.section-kicker {
-  display: inline-block;
-  margin-bottom: 0.55rem;
-  color: var(--gold);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.official-links-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2.5rem;
 }
 
@@ -1458,9 +1431,6 @@ body::before {
     max-width: 680px;
     margin: 0 auto;
   }
-  .official-links-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .portal-title {
     font-size: 1.9rem;
   }
@@ -1495,15 +1465,6 @@ body::before {
   }
   .modal-preview-window {
     height: 92vh;
-  }
-  .official-links-section {
-    margin-top: 3.5rem;
-    padding-top: 2.25rem;
-  }
-  .official-links-grid {
-    grid-template-columns: 1fr;
-    max-width: 680px;
-    margin: 0 auto;
   }
   .official-tour-card-featured .tour-banner-wrapper {
     height: 250px;
@@ -1561,9 +1522,6 @@ body::before {
   .btn-copy-tour-url {
     width: 100%;
     justify-content: center;
-  }
-  .official-links-grid {
-    grid-template-columns: 1fr;
   }
   .official-tour-card-featured .tour-title {
     font-size: 1.35rem;
