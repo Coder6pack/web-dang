@@ -232,6 +232,14 @@ body::before {
   text-align: center;
 }
 
+.splash-title-hcm {
+  display: inline-block;
+  font-size: 1.04em;
+  letter-spacing: 0.035em;
+  padding-top: 0.08em;
+  white-space: nowrap;
+}
+
 .splash-hero-subtitle {
   color: var(--text-cream);
   font-size: 0.82rem;
