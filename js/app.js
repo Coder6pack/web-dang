@@ -341,6 +341,7 @@ function initSplashScreen(musicController = {}) {
   const splashOverlay = document.getElementById('splashOverlay');
   const enterBtn = document.getElementById('btnEnterPortal');
   const reopenBtn = document.getElementById('btnReopenSplash');
+  const navBrand = document.querySelector('.nav-brand');
   const playBackgroundMusic = typeof musicController.play === 'function' ? musicController.play : () => Promise.resolve(false);
   const pauseBackgroundMusic = typeof musicController.pause === 'function' ? musicController.pause : () => {};
 
@@ -366,6 +367,13 @@ function initSplashScreen(musicController = {}) {
 
   if (reopenBtn) {
     reopenBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openSplash();
+    });
+  }
+
+  if (navBrand) {
+    navBrand.addEventListener('click', (e) => {
       e.preventDefault();
       openSplash();
     });
