@@ -223,7 +223,6 @@ body::before {
   font-weight: 900;
   letter-spacing: clamp(0px, 0.16vw, 1.8px);
   white-space: nowrap;
-  text-transform: uppercase;
   background: linear-gradient(180deg, #fff9d2 0%, #fbd54e 40%, #e6a00b 75%, #a86c00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
